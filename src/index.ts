@@ -12,12 +12,8 @@ document.addEventListener('DOMContentLoaded', () => {
         updateBubbleList(getBubbleList());
         updateBubbleList(getBgBubbleList());
 
-        if (getBubbleList().length < (innerWidth / 4)) {
-            addBubbleToCanvas(ctx);
-        }
-        if (getBgBubbleList().length < (innerWidth / 12)) {
-            addBgBubbleToCanvas(ctxbg);
-        }
+        if (getBubbleList().length < (innerWidth / 4)) addBubbleToCanvas(ctx);
+        if (getBgBubbleList().length < (innerWidth / 12)) addBgBubbleToCanvas(ctxbg);
     }
 
     const animate = () => {
