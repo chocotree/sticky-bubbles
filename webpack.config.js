@@ -59,12 +59,6 @@ const config = {
 mode === 'development' && Object.assign(config, {
     watch: true,
     devtool: 'source-map',
-    devServer: {
-        contentBase: path.resolve(__dirname, 'build'),
-        compress: true,
-        port: 3001,
-        hot: true,
-    },
     plugins: [
         { // just clear console before every compile
             apply(compiler) {
