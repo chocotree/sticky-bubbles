@@ -28,7 +28,7 @@ const { checkPort } = require('./dev-utils');
     })
     const server = new WebpackDevServer(compiler, devServerOptions);
 
-    server.listen(port, '127.0.0.1', () => {
+    server.listen(port, '0.0.0.0', () => {
         console.log('starting server~');
     })
 })();
