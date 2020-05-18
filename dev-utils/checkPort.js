@@ -5,7 +5,9 @@ const chalk = require('chalk');
 const question = {
     type: 'confirm',
     name: 'shouldChangePort',
-    message: chalk.yellow('Would you like to run the app on another port instead?'),
+    message: chalk.yellow('The default port was occupied,\n' +
+        'would you like to run the app on another port instead?'
+    ),
     default: true,
 };
 
