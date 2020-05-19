@@ -11,7 +11,7 @@ const question = {
     default: true,
 };
 
-const checkPort = (port = 3000) => new Promise((resolve, reject) => detect(port)
+const checkPort = (port = 3000) => new Promise<number>((resolve, reject) => detect(port)
     .then(freePort => {
         if (port == freePort) return resolve(port);
 

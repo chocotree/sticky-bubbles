@@ -9,7 +9,7 @@ import { checkPort, getLocalExternalIP } from '../dev-utils';
     let port = 3000;
     const sockHost = getLocalExternalIP();
 
-    await checkPort(port).then(freePort: number => {
+    await checkPort(port).then(freePort => {
         port = freePort;
     })
         .catch(err => {
