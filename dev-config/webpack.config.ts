@@ -18,11 +18,11 @@ const devMode = mode === 'development';
 const webpackConfig: webpack.Configuration = {
     mode,
     entry: {
-        main: './src/index.ts',
+        main: path.resolve(__dirname, '../src/index.ts'),
     },
     output: {
         filename: devMode ? '[name].js' : '[name].[chunkhash].js',
-        path: path.resolve(__dirname, 'build'),
+        path: path.resolve(__dirname, '../build'),
     },
     module: {
         rules: [
@@ -54,7 +54,7 @@ const webpackConfig: webpack.Configuration = {
             filename: devMode ? '[name].css' : '[name].[chunkhash].css'
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'src/index.html'),
+            template: path.resolve(__dirname, '../src/index.html'),
             title: 'sticky bubbles',
         }),
     ]
