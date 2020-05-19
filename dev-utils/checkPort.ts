@@ -1,6 +1,6 @@
-const detect = require('detect-port');
-const inquirer = require('inquirer');
-const chalk = require('chalk');
+import detect from 'detect-port';
+import inquirer from 'inquirer';
+import chalk from 'chalk';
 
 const question = {
     type: 'confirm',
