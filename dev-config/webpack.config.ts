@@ -2,9 +2,10 @@ import path from 'path';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-
-// need webpack.Configuration type
 import webpack from 'webpack';
+
+// locals
+import { webpackDevConfig, webpackProductionConfig } from '../dev-config';
 
 // clear console
 console.log('\x1b[2J\x1b[0;0H');
@@ -14,7 +15,7 @@ process.env.NODE_ENV = mode;
 const devMode = mode === 'development';
 
 
-const config: webpack.Configuration = {
+const webpackConfig: webpack.Configuration = {
     mode,
     entry: {
         main: './src/index.ts',
@@ -59,35 +60,10 @@ const config: webpack.Configuration = {
     ]
 };
 
-const devConfig: webpack.Configuration = {
-    watch: true,
-    devtool: 'source-map',
-    plugins: [
-        { // just clear console before every compile
-            apply(compiler) {
-                // should-emit -> Called before emitting assets.
-                // https://webpack.js.org/api/compiler-hooks/#shouldemit
-                compiler.plugin('should-emit', compilation => {
-                    console.log('\x1b[2J\x1b[0;0H');
-                    return true;
-                })
-            }
-        },
-        ...config.plugins,
-    ],
-}
-
-const productionConfig: webpack.Configuration = {
-    plugins: [
-        ...config.plugins,
-        new CleanWebpackPlugin(),
-    ],
-}
-
 // config for 🧪developemnt mode
-mode === 'development' && Object.assign(config, devConfig);
+mode === 'development' && Object.assign(webpackConfig, webpackDevConfig);
 
 // config for 🧪production mode
-mode === 'production' && Object.assign(config, productionConfig);
+mode === 'production' && Object.assign(webpackConfig, webpackProductionConfig);
 
-export { config };
+export { webpackConfig };
