@@ -1,16 +1,20 @@
-const path = require('path');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import path from 'path';
+import { CleanWebpackPlugin } from 'clean-webpack-plugin';
+import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+
+// need webpack.Configuration type
+import webpack from 'webpack';
 
 // clear console
 console.log('\x1b[2J\x1b[0;0H');
 
-const mode = process.argv[process.argv.indexOf('--mode') + 1];
+const mode: any = process.argv[process.argv.indexOf('--mode') + 1];
 process.env.NODE_ENV = mode;
 const devMode = mode === 'development';
 
-const config = {
+
+const config: webpack.Configuration = {
     mode,
     entry: {
         main: './src/index.ts',
@@ -55,8 +59,7 @@ const config = {
     ]
 };
 
-// config for 🧪developemnt mode
-mode === 'development' && Object.assign(config, {
+const devConfig: webpack.Configuration = {
     watch: true,
     devtool: 'source-map',
     plugins: [
@@ -72,14 +75,19 @@ mode === 'development' && Object.assign(config, {
         },
         ...config.plugins,
     ],
-});
+}
 
-// config for 🧪production mode
-mode === 'production' && Object.assign(config, {
+const productionConfig: webpack.Configuration = {
     plugins: [
         ...config.plugins,
         new CleanWebpackPlugin(),
     ],
-});
+}
 
-module.exports = config;
+// config for 🧪developemnt mode
+mode === 'development' && Object.assign(config, devConfig);
+
+// config for 🧪production mode
+mode === 'production' && Object.assign(config, productionConfig);
+
+export { config };
