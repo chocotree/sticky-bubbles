@@ -1,19 +1,19 @@
 import path from 'path';
-import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
 
 // locals
 import { webpackDevConfig, webpackProductionConfig } from '../dev-config';
+import { getCliArgs } from '../dev-utils';
+
 
 // clear console
 console.log('\x1b[2J\x1b[0;0H');
 
-const mode: any = process.argv[process.argv.indexOf('--mode') + 1];
+const mode: any = getCliArgs('--mode');
 process.env.NODE_ENV = mode;
 const devMode = mode === 'development';
-
 
 const webpackConfig: webpack.Configuration = {
     mode,
