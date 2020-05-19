@@ -1,12 +1,9 @@
-// const { checkPort } = require('./checkPort');
-// const { getLocalExternalIP } = require('./getLocalExternalIP');
+import { checkPort } from './checkPort';
+import { getLocalExternalIP } from './getLocalExternalIP';
 import { getCliArgs } from './getCliArgs';
 
-module.exports = {
-    // checkPort,
-    // getLocalExternalIP,
-}
-
 export {
+    checkPort,
+    getLocalExternalIP,
     getCliArgs,
 }

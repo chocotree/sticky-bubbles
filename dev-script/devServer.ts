@@ -1,16 +1,15 @@
-const path = require('path');
-const webpack = require('webpack');
-const WebpackDevServer = require('webpack-dev-server');
-
+import path from 'path';
+import webpack from 'webpack';
+import WebpackDevServer from 'webpack-dev-server';
 // locals
-const webpackConfig = require('./webpack.config');
-const { checkPort, getLocalExternalIP } = require('./dev-utils');
+import { webpackConfig } from '../dev-config';
+import { checkPort, getLocalExternalIP } from '../dev-utils';
 
 (async () => {
     let port = 3000;
     const sockHost = getLocalExternalIP();
 
-    await checkPort(port).then(freePort => {
+    await checkPort(port).then(freePort: number => {
         port = freePort;
     })
         .catch(err => {

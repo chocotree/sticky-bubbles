@@ -23,4 +23,4 @@ const checkPort = (port = 3000) => new Promise((resolve, reject) => detect(port)
     })
 );
 
-module.exports = { checkPort };
+export { checkPort };

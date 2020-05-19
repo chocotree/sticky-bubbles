@@ -5,4 +5,4 @@ const getLocalExternalIP = () => [].concat(...Object.values(networkInterfaces())
         return info.family === 'IPv4' && !info.internal
     }).address;
 
-module.exports = { getLocalExternalIP };
+export { getLocalExternalIP };
