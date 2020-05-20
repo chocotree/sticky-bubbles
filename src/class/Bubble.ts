@@ -13,7 +13,7 @@ class Bubble implements BubbleProp {
     public whichCtx: CanvasRenderingContext2D;
     public ySpeed: number;
     public color: string;
-    public radius = (Math.random() * 150) + 30;
+    public radius = (Math.random() * 150) + 20;
     public life = true;
     // position [x, y]
     public x = Math.random() * innerWidth;
