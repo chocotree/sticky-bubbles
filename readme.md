@@ -6,3 +6,24 @@
 ### demo
 
 - https://istree-sticky-bubbles.surge.sh/
+
+<br/>
+
+---
+
+## how to write webpack config files in Typescript
+
+- [a medium blog post](https://medium.com/webpack/unambiguous-webpack-config-with-typescript-8519def2cac7)
+
+- [read webpack docs here](https://webpack.js.org/configuration/configuration-languages/#typescript)
+
+    ### conclusion 🔻
+    Actually, just install ts-node and change webpack.config.js to .ts file,
+    and update import, export syntax, that's it!<br/>
+
+    We can still use the original npm script like:
+
+    <span style="color: #6a9955;">// just a basic example 👀</span></br>
+    "build": "webpack --mode production".
+    
+    Because we installed the ts-node package, and webpack just need that to use webpack.config.ts file!
