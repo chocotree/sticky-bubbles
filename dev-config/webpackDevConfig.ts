@@ -1,5 +1,4 @@
 import webpack from 'webpack';
-import { webpackConfig } from './webpack.config';
 
 const webpackDevConfig: webpack.Configuration = {
     watch: true,
@@ -15,7 +14,6 @@ const webpackDevConfig: webpack.Configuration = {
                 })
             }
         },
-        ...webpackConfig.plugins,
     ],
 }
 

@@ -61,9 +61,13 @@ const webpackConfig: webpack.Configuration = {
 };
 
 // config for 🧪developemnt mode
-mode === 'development' && Object.assign(webpackConfig, webpackDevConfig);
+mode === 'development' && Object.assign(webpackConfig, webpackDevConfig, {
+    plugins: [...webpackConfig.plugins, ...webpackDevConfig.plugins],
+});
 
 // config for 🧪production mode
-mode === 'production' && Object.assign(webpackConfig, webpackProductionConfig);
+mode === 'production' && Object.assign(webpackConfig, webpackProductionConfig, {
+    plugins: [...webpackConfig.plugins, ...webpackProductionConfig.plugins],
+});
 
-export { webpackConfig };
+export default webpackConfig;
