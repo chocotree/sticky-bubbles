@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "ts-node dev-script/devServer.ts --mode development",
-    "build": "webpack --mode production",
+    "build": "webpack --config dev-config/webpack.config.ts --mode production",
     "deployToSurge": "DEPLOY_TO_SURGE.sh"
   },
   "keywords": [],
