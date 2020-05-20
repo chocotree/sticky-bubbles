@@ -1,7 +1,8 @@
-const { networkInterfaces } = require('os');
+import { networkInterfaces, NetworkInterfaceInfo } from 'os';
 
-const getLocalExternalIP = () => [].concat(...Object.values(networkInterfaces()))
-    .find((info) => {
+// 🤧 array concat use any
+const getLocalExternalIP = () => ([] as any).concat(...Object.values(networkInterfaces()))
+    .find((info: any) => { // 🤧 any
         return info.family === 'IPv4' && !info.internal
     }).address;
 
