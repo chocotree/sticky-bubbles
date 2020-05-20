@@ -32,9 +32,9 @@ import { checkPort, getLocalExternalIP } from '../dev-utils';
         // and will show some cors problem in dev console.
         sockHost,
     };
-    const server = new WebpackDevServer(compiler, devServerOptions);
+    const webpackDevServer = new WebpackDevServer(compiler, devServerOptions);
 
-    server.listen(port, '0.0.0.0', () => {
+    webpackDevServer.listen(port, '0.0.0.0', () => {
         console.log('starting server~');
     })
 })();
