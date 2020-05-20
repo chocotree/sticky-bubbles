@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node devServer.js --mode development",
+    "start": "ts-node dev-script/devServer.ts --mode development",
     "build": "webpack --mode production",
     "deployToSurge": "DEPLOY_TO_SURGE.sh"
   },
