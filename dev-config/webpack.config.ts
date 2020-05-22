@@ -2,6 +2,7 @@ import path from 'path';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import webpack from 'webpack';
+import dotenv from 'dotenv';
 
 // locals
 import { webpackDevConfig, webpackProductionConfig } from '../dev-config';
@@ -14,6 +15,7 @@ console.log('\x1b[2J\x1b[0;0H');
 const mode: any = getCliArgs('--mode');
 process.env.NODE_ENV = mode;
 const devMode = mode === 'development';
+const envPath = devMode ? 'dev-config/dev.env' : 'dev-config/production.env';
 
 const webpackConfig: webpack.Configuration = {
     mode,
@@ -57,6 +59,9 @@ const webpackConfig: webpack.Configuration = {
             template: path.resolve(__dirname, '../src/index.html'),
             title: 'sticky bubbles',
         }),
+        new webpack.DefinePlugin({
+            "process.env": JSON.stringify(dotenv.config({ path: envPath }).parsed),
+        })
     ]
 };
 

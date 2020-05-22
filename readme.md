@@ -27,3 +27,13 @@
     "build": "webpack --mode production".
     
     Because we installed the ts-node package, and webpack just need that to use webpack.config.ts file!
+
+<br/>
+
+## How to pass env file variable to webpack config
+- [stackoverflow](https://stackoverflow.com/questions/46224986/how-to-pass-env-file-variables-to-webpack-config)
+
+    usage
+    ```
+    console.log(process.env);
+    ```
