@@ -46,6 +46,14 @@ const webpackConfig: webpack.Configuration = {
                     'sass-loader',
                 ],
             },
+            { // file loader 
+                // add more ext here |mov
+                test: /\.(png|jpe?g|gif|mp4)$/i,
+                loader: 'file-loader',
+                options: {
+                    name: '[name].[ext]',
+                },
+            },
         ],
     },
     resolve: {

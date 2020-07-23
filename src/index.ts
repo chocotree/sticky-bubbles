@@ -1,6 +1,7 @@
 import './scss/index.scss';
 import { Bubble } from './class';
 import { useCanvasDom, useBubbleLists, throttle, updateBubbleList } from './utils';
+import './static';
 
 document.addEventListener('DOMContentLoaded', () => {
 
